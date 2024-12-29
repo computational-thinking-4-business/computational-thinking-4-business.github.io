@@ -134,7 +134,7 @@ back_to_top_text: "Back to top"
 # For copy button on code
 enable_copy_code_button: true
 
-collections
+# collections
 collections:
   python:
     output: true
