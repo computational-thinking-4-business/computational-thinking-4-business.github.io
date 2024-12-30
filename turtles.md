@@ -132,10 +132,8 @@ S.end_fill()
 
 <summary>Annotated version of the code</summary>
 
-<!-- <pre> -->
-<!-- <code> -->
-```python
-
+<pre>
+<code>
 # Import the necessary library for turtle graphics.
 from ColabTurtlePlus.Turtle import *
 
@@ -196,10 +194,8 @@ while True:
 # Stop filling the shapes.
 T.end_fill()
 S.end_fill()
-```
-<!-- </code> -->
-<!-- </pre> -->
-
+</code>
+</pre>
 </details>
 
 
@@ -215,53 +211,59 @@ Your challenge is to understand this code and then modify it to create your own 
 
 <details>
   <summary>Click to reveal answer</summary>
-
-  You can decompose this code by identifying distinct blocks of functionality:
-    * **Setup:**  The lines that import the library, clear the screen, and set up the drawing area (`from ColabTurtlePlus...`, `clearscreen()`, `setup()`).
-    * **Turtle Initialization:** The lines that create the turtle objects and set their properties (`T = Turtle()`, `T.color()`, `T.speed()`, etc.).
-    * **Movement and Drawing:** The `while True` loop that contains the instructions for the turtles to move and turn.
-    * **Filling:** The lines that start and end the filling of the shapes (`T.begin_fill()`, `T.end_fill()`).
-
-  By separating these parts, you can focus on understanding and modifying each piece individually.
+  <blockquote class="highlight" style="margin-left: 2rem;">
+<p>You can decompose this code by identifying distinct blocks of functionality:</p>
+<ul>
+  <li><strong>Setup:</strong> The lines that import the library, clear the screen, and set up the drawing area (<code>from ColabTurtlePlus...</code>, <code>clearscreen()</code>, <code>setup()</code>).</li>
+  <li><strong>Turtle Initialization:</strong> The lines that create the turtle objects and set their properties (<code>T = Turtle()</code>, <code>T.color()</code>, <code>T.speed()</code>, etc.).</li>
+  <li><strong>Movement and Drawing:</strong> The <code>while True</code> loop that contains the instructions for the turtles to move and turn.</li>
+  <li><strong>Filling:</strong> The lines that start and end the filling of the shapes (<code>T.begin_fill()</code>, <code>T.end_fill()</code>).</li>
+</ul>
+<p>By separating these parts, you can focus on understanding and modifying each piece individually.</p>
+</blockquote>
 </details>
 
 * **Abstraction:** Can you identify any elements that are abstracted away or hidden from the user?
 
 <details>
   <summary>Click to reveal answer</summary>
+<blockquote class="highlight" style="margin-left: 2rem;">
 
-  Yes, several elements are abstracted in this code:
-    * **Turtle commands:** Commands like `forward()`, `left()`, and `jumpto()` abstract away the complex mathematics involved in moving and drawing on the screen. You don't need to know trigonometry or geometry to use them.
-    * **Library functions:** The functions provided by the `ColabTurtlePlus.Turtle` library abstract away the lower-level code that interacts with the computer's graphics system.
-    * **Fill rule:** The `fillrule` option abstracts the complexities of how overlapping shapes are filled.
-
-  Abstraction simplifies the code, allowing you to focus on the desired outcome without getting bogged down in the underlying implementation details.
-
+  <p>Yes, several elements are abstracted in this code:</p>
+<ul>
+  <li><strong>Turtle commands:</strong> Commands like <code>forward()</code>, <code>left()</code>, and <code>jumpto()</code> abstract away the complex mathematics involved in moving and drawing on the screen. You don't need to know trigonometry or geometry to use them.</li>
+  <li><strong>Library functions:</strong> The functions provided by the <code>ColabTurtlePlus.Turtle</code> library abstract away the lower-level code that interacts with the computer's graphics system.</li>
+  <li><strong>Fill rule:</strong> The <code>fillrule</code> option abstracts the complexities of how overlapping shapes are filled.</li>
+</ul>
+<p>Abstraction simplifies the code, allowing you to focus on the desired outcome without getting bogged down in the underlying implementation details.</p>
+</blockquote>
 </details>
 
 * **Algorithmic Thinking:** What is the core algorithm that generates the pattern?
 
 <details>
   <summary>Click to reveal answer</summary>
+  <blockquote class="highlight" style="margin-left: 2rem;">
 
-  The core algorithm is within the `while True` loop:
-    1. Move the turtle forward by a certain distance (`T.forward(200)`).
-    2. Turn the turtle left by a certain angle (`T.left(170)`).
-    3. Repeat these steps until the turtle returns to its starting position.
-
-  This simple algorithm, when executed repeatedly, generates the complex spiral patterns.
+<p>The core algorithm is within the <code>while True</code> loop:</p>
+<ol>
+  <li>Move the turtle forward by a certain distance (<code>T.forward(200)</code>).</li>
+  <li>Turn the turtle left by a certain angle (<code>T.left(170)</code>).</li>
+  <li>Repeat these steps until the turtle returns to its starting position.</li>
+</ol>
+<p>This simple algorithm, when executed repeatedly, generates the complex spiral patterns.</p>
+</blockquote>
 </details>
 
 * **Pattern Recognition:** Can you identify any patterns in the code itself, and how do those patterns translate into the visual output?
 
 <details>
   <summary>Click to reveal answer</summary>
-
-  The most obvious pattern is the repetition of the `forward()` and `left()` commands within the loop. This repetition creates the spiral shape.  
-
-  The specific values used for distance and angle determine the tightness and overall form of the spiral. Experimenting with these values will result in different visual patterns.
-
-  By recognizing these patterns in the code, you can predict how changes to the code will affect the visual output.
+<blockquote class="highlight" style="margin-left: 2rem;">
+<p>The most obvious pattern is the repetition of the <code>forward()</code> and <code>left()</code> commands within the loop. This repetition creates the spiral shape.</p>
+<p>The specific values used for distance and angle determine the tightness and overall form of the spiral. Experimenting with these values will result in different visual patterns.</p>
+<p>By recognizing these patterns in the code, you can predict how changes to the code will affect the visual output.</p>
+</blockquote>
 </details>
 
 ### Refactoring and Applying Concepts
@@ -303,20 +305,18 @@ Can you spot the core algorithm that generates the spiral pattern?
 
 <details>
   <summary>Click to reveal answer</summary>
-
-  It's the `while True` loop! This loop repeatedly instructs the turtles to move forward and turn left, creating the spiral shape.
-
-  ```python
-  while True:
+<blockquote class="highlight">
+  <p>It's the <code>while True</code> loop! This loop repeatedly instructs the turtles to move forward and turn left, creating the spiral shape.</p>
+  <pre><code>while True:
       T.forward(200)
       T.left(170)
       S.forward(200)
       S.left(170)
-      if (T.getx()-x0)**2 + T.gety()**2 < 1:
+      if (T.getx()-x0)**2 + T.gety()**2 &lt; 1:
           break
-  ```
-
-  This is **algorithmic thinking** in action - defining a precise sequence of steps to achieve a desired outcome.
+  </code></pre>
+  <p>This is <strong>algorithmic thinking</strong> in action - defining a precise sequence of steps to achieve a desired outcome.</p>
+</blockquote>
 </details>
 
 **Iteration 2: Abstraction with a Function**
@@ -343,10 +343,10 @@ What have we achieved here?
 
 <details>
   <summary>Click to reveal answer</summary>
-
-  We've created an **abstraction**! The `draw_spiral()` function hides the complexity of the algorithm. Now, someone using this function doesn't need to understand the details of the loop or the math involved. They can simply call the function with the desired parameters: the turtle object, step size, and angle.
-
-  This is similar to using a function in a spreadsheet software. You don't need to know the formula behind `SUM()` or `AVERAGE()`, you just need to know what inputs it requires.
+<blockquote class="highlight">
+  <p>We've created an <strong>abstraction</strong>! The <code>draw_spiral()</code> function hides the complexity of the algorithm. Now, someone using this function doesn't need to understand the details of the loop or the math involved. They can simply call the function with the desired parameters: the turtle object, step size, and angle.</p>
+  <p>This is similar to using a function in a spreadsheet software. You don't need to know the formula behind <code>SUM()</code> or <code>AVERAGE()</code>, you just need to know what inputs it requires.</p>
+</blockquote>
 </details>
 
 **Iteration 3: Abstraction and Progressive Disclosure with Default Arguments**
