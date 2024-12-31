@@ -1,7 +1,11 @@
 ---
 title: Computational Thinking with Turtles
 layout: default
+nav-order: 2
 ---
+
+## Contents
+{: .no_toc .text-delta}
 
 1. TOC
 {:toc}
@@ -128,12 +132,11 @@ T.end_fill()
 S.end_fill()
 ```
 
-<details>
+<details markdown="block">
 
 <summary>Annotated version of the code</summary>
 
-<pre>
-<code>
+```python
 # Import the necessary library for turtle graphics.
 from ColabTurtlePlus.Turtle import *
 
@@ -194,8 +197,8 @@ while True:
 # Stop filling the shapes.
 T.end_fill()
 S.end_fill()
-</code>
-</pre>
+```
+
 </details>
 
 
@@ -542,6 +545,11 @@ turtle2_data = (T2, 150, 120)
 draw_spirals(turtle1_data, turtle2_data)
 ```
 
+{: .important-title}
+> Lesson Colab Notebook
+>
+> The interactive notebook version of this code is available on the course [GitHub Repository](https://github.com/computational-thinking-4-business/computational-thinking-4-business.github.io/tree/main/notebooks).
+
 **Connecting to Foundational Concepts:**
 
 * **Decomposition:** We broke down the original code into smaller, more manageable functions (`create_turtle`, `draw_spirals`, `draw_spiral`). This made the code easier to understand, test, and modify.
@@ -556,3 +564,11 @@ draw_spirals(turtle1_data, turtle2_data)
 * Even simple coding exercises, like the turtle graphics example, can provide valuable insights into the principles of computational thinking and their practical applications.
 
 This concludes the lesson on computational thinking with turtle graphics. We encourage you to experiment with the code, modify it to create your own patterns, and continue exploring the fascinating world of computational thinking!
+
+### References
+
+- [turtle](https://docs.python.org/3/library/turtle.html) - Python standard library package documentation
+- [ColabTurtlePlus](https://github.com/mathriddle/ColabTurtlePlus) - Python package for turtle graphics on Colab notebooks
+- [Turtle Star](https://github.com/mathriddle/ColabTurtlePlus/blob/main/examples_version2/TurtleStar.md) - Turtle star example from ColabTurtlePlus GitHub Repository.
+- [Exploring Computational Thinking](https://edu.google.com/resources/programs/exploring-computational-thinking/) - Google for Education course resources
+- [Introduction to Computational Thinking](https://www.bbc.co.uk/bitesize/guides/zp92mp3/revision/1) What is Computational Thinking?
