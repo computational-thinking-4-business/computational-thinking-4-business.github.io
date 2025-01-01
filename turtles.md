@@ -3,14 +3,14 @@ title: Computational Thinking with Turtles
 layout: default
 nav_order: 2
 ---
-
+{: .no_toc}
+# Computational Thinking with Turtles
 ## Contents
 {: .no_toc .text-delta}
 
 1. TOC
 {:toc}
 
-### Computational Thinking with Turtles
 
 In today's technology-driven world, computational thinking is an essential skill for effective leadership, even without requiring you to become a programmer. This lesson demystifies computational thinking, presenting it as a powerful problem-solving framework applicable to various business challenges.
 
