@@ -332,7 +332,7 @@ The Gemini API allows you to interact with Gemini programmatically, giving you m
 
 **Key Concepts**
 
-* **API Key:**  To access the API, you'll need an API key, which is a unique identifier that authenticates your requests. You can obtain an API key through the Google Cloud console.
+* **API Key:**  To access the API, you'll need an API key, which is a unique identifier that authenticates your requests. You can obtain an API key through the Google AI Studio console (The link with a key shaped icon on the left side navigation menu).
 
 {: .warning-title}
 > Protect API Key
