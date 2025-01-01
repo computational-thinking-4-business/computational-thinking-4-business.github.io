@@ -37,8 +37,6 @@ However, crafting effective prompts that can elicit the desired output from an L
 
 Large Language Models (LLMs) are sophisticated AI systems that can understand and generate human-like text.  They are built upon **neural networks**, which are complex structures inspired by the human brain. These networks consist of interconnected **nodes**, processing and transmitting information like neurons.
 
-**(Include a simplified visual representation of a neural network with interconnected nodes.)**
-
 Imagine each node as a tiny decision-maker,  collectively contributing to the model's ability to understand and generate language.
 
 **2.2  Key Characteristics of LLMs**
@@ -80,8 +78,6 @@ To help users choose the right LLM for their needs, model developers provide **m
 * **Limitations:** What are the model's limitations or potential biases?
 * **Ethical considerations:** Are there any ethical implications to consider when using the model?
 * **Performance metrics:** How well does the model perform on different tasks?
-
-**(Include a screenshot of a model card from Vertex AI Model Garden or HuggingFace, highlighting the key sections.)**
 
 By understanding the information presented in a model card, you can evaluate an LLM's fitness-for-purpose and make informed decisions about its suitability for your specific business needs.
 
@@ -287,3 +283,174 @@ Here are some common pitfalls to avoid when crafting prompts:
 * **Neglecting Ethical Considerations:**  Be mindful of the potential biases and ethical implications of LLMs. Avoid generating harmful or misleading content.
 
 By paying attention to these aspects of prompt design, you can significantly improve the quality and relevance of the LLM's outputs.
+
+Okay, I can help you develop this section, incorporating the comparison with the Gemini app and omitting the subsection on the `requests` library as you requested.
+
+## Hands-on with Google AI Studio and Gemini
+
+**3.1 Introducing Google AI Studio**
+
+Now that we've explored the concepts of prompts and prompt design, it's time to get hands-on! Google AI Studio provides a user-friendly platform for accessing and experimenting with various generative AI models, including Gemini.
+
+![Google AI Studio](/assets/images/ai-studio.png)
+
+Think of AI Studio as your creative playground for exploring the capabilities of LLMs. It offers several benefits:
+
+* **Ease of Use:** AI Studio provides a streamlined interface that simplifies interacting with LLMs, even without coding experience.
+* **Model Exploration:** You can easily access and experiment with different LLMs, comparing their strengths and weaknesses for various tasks.
+* **Prompt Experimentation:** The platform allows you to iterate on your prompts, trying different variations and observing their impact on the generated output.
+* **Collaboration:** You can share your prompts and results with others, fostering collaboration and knowledge sharing.
+
+**AI Studio vs. Gemini App**
+
+You might be wondering how AI Studio differs from the Gemini app. While both provide access to Gemini, they cater to different needs and use cases:
+
+* **AI Studio:** Focuses on providing a flexible and customizable environment for experimenting with various LLMs, including Gemini. It offers more advanced features and allows for programmatic access through APIs.
+* **Gemini App:** Provides a more streamlined and user-friendly experience for casual users who want to explore Gemini's capabilities without delving into technical details.
+
+**3.2 Introducing Gemini**
+
+Gemini is Google's next-generation family of multimodal generative AI models. It's designed to be highly versatile, capable of handling text, images, and potentially other modalities in the future.
+
+* **Multimodal:** Gemini is designed to handle not just text, but also images and potentially other modalities like audio and video in the future. This allows for richer and more nuanced interactions compared to text-only models.
+* **Family of Models:** Gemini is not a single model, but a family of models with different sizes and capabilities. This allows developers to choose the model that best suits their needs and resource constraints.
+* **Advanced Reasoning and Coding:**  Gemini is expected to demonstrate improved capabilities in areas like reasoning, coding, and complex problem-solving.
+* **Integration with Google Products:** Gemini is integrated into various Google products such as Google Workspace (e.g. Docs, Slides, Sheets), Google Cloud Platform, and NotebookLM.
+
+Please see the [documentation page](https://ai.google.dev/gemini-api/docs/models/gemini) for further details.
+
+
+Within AI Studio, you can access Gemini in two ways:
+
+* **Web Service:** This provides a user-friendly interface for interacting with Gemini using natural language prompts.
+* **API Access:** For more advanced use cases, you can access Gemini programmatically using its API (Application Programming Interface). This allows you to integrate Gemini into your own applications or workflows. See the [Google Gemini cookbook repository](https://github.com/google-gemini/cookbook) for code samples in Jupyter Notebook format. Many of the sample notebooks can be opened in Google Colab with minimal effort. 
+
+
+**3.3 Concise Overview of the Gemini API**
+
+The Gemini API allows you to interact with Gemini programmatically, giving you more control and flexibility compared to using the web interface.  You'll be using the `google-generativeai` Python package, which provides convenient functions for making API calls.
+
+**Key Concepts**
+
+* **API Key:**  To access the API, you'll need an API key, which is a unique identifier that authenticates your requests. You can obtain an API key through the Google Cloud console.
+
+{: .warning-title}
+> Protect API Key
+> 
+> API key is like a password. Keep it safe. Do not accidentally share the password. Use environment variables or Colab Secrets to keep the API key safe. 
+> See this [notebook](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Authentication.ipynb) for details 
+
+
+* **Models:**  Gemini offers a family of models with different capabilities. You'll specify the desired model in your API requests.
+
+* **Methods:**  The API provides various methods for different tasks, such as generating text, translating languages, and answering questions.
+* **Parameters:**  You can customize the API's behavior using parameters, such as temperature and top-k, which we discussed in the prompt design section.
+
+**Basic Workflow**
+
+Here's a simplified workflow for using the Gemini API with the `google-generativeai` package:
+
+1. **Install the package:**  `pip install google-generativeai`
+2. **Import the library:**  `import google.generativeai as genai`
+3. **Set your API key:**  `genai.configure(api_key='YOUR_API_KEY')`
+4. **Create a model instance:**  `model = genai.GenerativeModel('gemini-pro')` (or another model name)
+5. **Generate text:**  `response = model.generate_text(prompt='Your prompt here')`
+6. **Access the output:**  `print(response.result)`
+
+See this [API reference](https://ai.google.dev/gemini-api/docs/text-generation?lang=python) for text generation code snippets.
+
+**3.5 Hands-on Prompt Creation**
+
+Now, let's put your prompt design skills to the test! Within AI Studio, you can experiment with various types of prompts:
+
+* **System Instructions:** Provide high-level guidance to the LLM, such as setting its persona or defining constraints.
+* **Few-shot Examples:** Give the LLM a few examples of the desired output to guide its generation process.
+* **Role-play:** Ask the LLM to assume a specific role or scenario to generate contextually relevant responses.
+
+Here is an example to get you started. Explore more prompting [strategies sample here](https://github.com/google-gemini/cookbook/tree/main/examples/prompting).
+
+```python
+!pip install -U -q "google-generativeai>=0.7.2"
+import google.generativeai as genai
+
+from google.colab import userdata
+
+GOOGLE_API_KEY = userdata.get("GOOGLE_API_KEY")
+genai.configure(api_key=GOOGLE_API_KEY)
+
+model = genai.GenerativeModel(
+    "models/gemini-1.5-flash",
+    system_instruction="""
+    You are a business school professor teaching a course on computational thinking for business students with limited prior programming experience. You are an expert in generative AI. You provide crisp explanations of technical concepts with relatable examples.
+    You will enquire about and confirm the information you need about students' prior knowledge before explaining advanced technical concepts
+    """,
+)
+response = model.generate_content(
+    "Explain how AI works",
+    generation_config = genai.GenerationConfig(
+        max_output_tokens=1000,
+        temperature=0.1,
+    )
+)
+
+from IPython.display import display, Markdown
+display(Markdown(response.text))
+```
+
+<details markdown="block">
+<summary><span class="label label-blue">Annotated version of code</span></summary> 
+
+```python
+# Install the google-generativeai package. The -U flag updates to the latest version, 
+# and -q flag ensures quiet installation (minimal output).
+!pip install -U -q "google-generativeai>=0.7.2" 
+
+# Import the library for using Google's generative AI models.
+import google.generativeai as genai
+
+# Import the userdata module to access user-specific data stored in Colab.
+from google.colab import userdata
+
+# Retrieve the Google API key from user data. This key is needed to authenticate API requests.
+GOOGLE_API_KEY = userdata.get("GOOGLE_API_KEY")
+
+# Configure the generative AI library with the API key.
+genai.configure(api_key=GOOGLE_API_KEY)
+
+# Create a GenerativeModel instance using the specified Gemini model ("gemini-1.5-flash").
+model = genai.GenerativeModel(
+    "models/gemini-1.5-flash",
+    # Provide a system instruction to guide the model's behavior and persona.
+    system_instruction="""
+    You are a business school professor teaching a course on computational thinking for business students with limited prior programming experience. You are an expert in generative AI. You provide crisp explanations of technical concepts with relatable examples.
+    You will enquire about and confirm the information you need about students' prior knowledge before explaining advanced technical concepts
+    """,
+)
+
+# Generate content from the model using the provided prompt and generation configuration.
+response = model.generate_content(
+    "Explain how AI works",
+    # Configure the generation parameters, such as the maximum number of output tokens and temperature.
+    generation_config = genai.GenerationConfig(
+        max_output_tokens=1000,
+        temperature=0.1,
+    )
+)
+
+# Import necessary modules for displaying the output in a Markdown format.
+from IPython.display import display, Markdown
+
+# Display the generated text from the model's response in a Markdown format.
+display(Markdown(response.text))
+```
+
+</details>
+
+By combining the user-friendly interface of AI Studio with the flexibility of the Gemini API, you can explore the full potential of generative AI and apply it to various business challenges.
+
+
+References:
+[Gemini API Reference](https://ai.google.dev/api?lang=python)
+[Gemini Model Card](https://ai.google.dev/gemini-api/docs/models/gemini)
+[Hugging Face Models](https://huggingface.co/models)
+[Gemini Prompting Strategies](https://ai.google.dev/gemini-api/docs/prompting-strategies)
