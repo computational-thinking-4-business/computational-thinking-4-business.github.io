@@ -449,8 +449,9 @@ display(Markdown(response.text))
 By combining the user-friendly interface of AI Studio with the flexibility of the Gemini API, you can explore the full potential of generative AI and apply it to various business challenges.
 
 
-References:
-[Gemini API Reference](https://ai.google.dev/api?lang=python)
-[Gemini Model Card](https://ai.google.dev/gemini-api/docs/models/gemini)
-[Hugging Face Models](https://huggingface.co/models)
-[Gemini Prompting Strategies](https://ai.google.dev/gemini-api/docs/prompting-strategies)
+## References:
+
+- [Gemini API Reference](https://ai.google.dev/api?lang=python)
+- [Gemini Model Card](https://ai.google.dev/gemini-api/docs/models/gemini)
+- [Hugging Face Models](https://huggingface.co/models)
+- [Gemini Prompting Strategies](https://ai.google.dev/gemini-api/docs/prompting-strategies)
